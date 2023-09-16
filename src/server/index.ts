@@ -3,8 +3,15 @@ import { BotError, webhookCallback } from "grammy";
 import type { Bot } from "#root/bot/index.js";
 import { errorHandler } from "#root/bot/handlers/index.js";
 import { logger } from "#root/logger.js";
+import get_redis_client from "#root/redis/client.js";
 
 export const createServer = async (bot: Bot) => {
+
+  // Setup redis client
+  const redis_client = get_redis_client()
+  await redis_client.connect();
+
+  
   const server = fastify({
     logger,
   });
