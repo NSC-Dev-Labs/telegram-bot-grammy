@@ -49,9 +49,7 @@ const menu: Menu = new Menu("my-menu-identifier")
 
 const games_menu = new Menu("games-menu")
   .text("Dice", (ctx) => ctx.reply("Let's play a dice game!")).row()
-  .text("Basketball", (ctx) => ctx.reply("Let' shoot some 3-pointers!")).row()
   .text("Roulette", (ctx) => ctx.reply("Win upto 100$")).row()
-  .text("Black Jack", (ctx) => ctx.reply(" Let's Play some Black Jack!")).row()
   .back("Go Back");
 
 const profile_menu = new Menu("profile-menu")

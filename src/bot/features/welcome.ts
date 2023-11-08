@@ -8,7 +8,7 @@ import DiceGame from "#root/dicegame/DiceGame.js";
 
 const composer = new Composer<Context>();
 
-const dice_roll_hamdler = async (ctx :any) => {
+const dice_roll_handler = async (ctx :any) => {
   const username = ctx.from.username || ctx.from.first_name || "Player";
   const game = DiceGameFactory.create_dice_game(ctx.from.id, username);
   const round = game.play_a_round();
@@ -43,7 +43,8 @@ const dice_roll_hamdler = async (ctx :any) => {
 
 const feature = composer.chatType("private");
 const menu: any = new Menu("my-menu-identifier")
-  .text("Roll the dice", dice_roll_hamdler)
+  .text("Games", dice_roll_handler).row()
+  .text("Profile", )
 
 feature.use(menu);
 
